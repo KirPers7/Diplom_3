@@ -12,9 +12,7 @@ import pageobject.*;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.equalTo;
 
-public class UserAuthorizationTest extends BaseTest{
-
-
+public class UserAuthorizationTest extends BaseTest {
 
     @Before
     @DisplayName("check create user by API")

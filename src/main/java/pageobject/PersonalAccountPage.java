@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +27,7 @@ public class PersonalAccountPage {
         this.webDriver = webDriver;
     }
 
+    @Step("Заполнение полей для авторизации и клик по кнопке Войти")
     public PersonalAccountPage logIn(String email, String password) {
         new WebDriverWait(webDriver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(EMAIL)).sendKeys(email);
@@ -34,6 +36,7 @@ public class PersonalAccountPage {
         return this;
     }
 
+    @Step("Дожидаемся вкладку Профиль и клик по кнопке Конструктор")
     public PersonalAccountPage goToConstructorByConstructorButton() {
         new WebDriverWait(webDriver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(PROFILE_TAB_TITLE));
@@ -41,6 +44,7 @@ public class PersonalAccountPage {
         return this;
     }
 
+    @Step("Дожидаемся вкладку Профиль и клик по кнопке Логотип")
     public PersonalAccountPage goToConstructorByLogoButton() {
         new WebDriverWait(webDriver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(PROFILE_TAB_TITLE));
@@ -48,6 +52,7 @@ public class PersonalAccountPage {
         return this;
     }
 
+    @Step("Дожидаемся вкладку Профиль и клик по кнопке Выход")
     public PersonalAccountPage exitFromPersonalAccount() {
         new WebDriverWait(webDriver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(PROFILE_TAB_TITLE));

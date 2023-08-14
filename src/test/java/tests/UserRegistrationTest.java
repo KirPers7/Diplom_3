@@ -9,14 +9,12 @@ import pageobject.MainPage;
 import pageobject.RegistrationPage;
 import pojo.Credentials;
 
+public class UserRegistrationTest extends BaseTest {
 
-public class UserRegistrationTest extends BaseTest{
-
-    protected String accessToken;
     private final String email = user.getEmail();
     private final String password = user.getPassword();
     private final String name = user.getName();
-
+    protected String accessToken;
 
     @Test
     @DisplayName("check create user")
@@ -49,13 +47,12 @@ public class UserRegistrationTest extends BaseTest{
         registrationPage.fillRegistrationFieldsWithIncorrectPassword(name, email, incorrectPassword);
     }
 
-
-@After
-@DisplayName("check delete user by API")
-@Description("Удаляется успешно пользователь через API")
-public void deleteUserTest() {
-    if (accessToken != null) {
-        userClient.deleteUser(accessToken).log().all();
+    @After
+    @DisplayName("check delete user by API")
+    @Description("Удаляется успешно пользователь через API")
+    public void deleteUserTest() {
+        if (accessToken != null) {
+            userClient.deleteUser(accessToken).log().all();
+        }
     }
-}
 }

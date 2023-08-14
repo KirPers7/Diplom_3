@@ -14,7 +14,7 @@ import pageobject.PersonalAccountPage;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.equalTo;
 
-public class PersonalAccountTest extends BaseTest{
+public class PersonalAccountTest extends BaseTest {
 
 
     @Before
@@ -38,7 +38,7 @@ public class PersonalAccountTest extends BaseTest{
         new MainPage(webDriver)
                 .signInButtonClick(); //ПРОБЛЕМЫ!
         new AuthorizationPage(webDriver)
-                .logIn(email,password);
+                .logIn(email, password);
         new MainPage(webDriver)
                 .personalAccountButtonClick();
     }
@@ -50,7 +50,7 @@ public class PersonalAccountTest extends BaseTest{
         new MainPage(webDriver)
                 .signInButtonClick(); //ПРОБЛЕМЫ!
         new AuthorizationPage(webDriver)
-                .logIn(email,password);
+                .logIn(email, password);
         new MainPage(webDriver)
                 .personalAccountButtonClick();
         new PersonalAccountPage(webDriver)
@@ -66,7 +66,7 @@ public class PersonalAccountTest extends BaseTest{
         new MainPage(webDriver)
                 .signInButtonClick(); //ПРОБЛЕМЫ!
         new AuthorizationPage(webDriver)
-                .logIn(email,password);
+                .logIn(email, password);
         new MainPage(webDriver)
                 .personalAccountButtonClick();
         new PersonalAccountPage(webDriver)
@@ -82,7 +82,7 @@ public class PersonalAccountTest extends BaseTest{
         new MainPage(webDriver)
                 .signInButtonClick(); //ПРОБЛЕМЫ!
         new AuthorizationPage(webDriver)
-                .logIn(email,password);
+                .logIn(email, password);
         new MainPage(webDriver)
                 .personalAccountButtonClick();
         new PersonalAccountPage(webDriver)

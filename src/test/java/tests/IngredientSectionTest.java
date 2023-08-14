@@ -5,7 +5,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import pageobject.MainPage;
 
-public class IngredientSectionTest extends BaseTest{
+public class IngredientSectionTest extends BaseTest {
 
     @Test
     @DisplayName("check switch ingredients sections")

@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class AuthorizationPage {
         this.webDriver = webDriver;
     }
 
+    @Step("Клик по кнопке Зарегистрироваться")
     public AuthorizationPage registrationButtonClick() {
         WebElement regButton = webDriver.findElement(REGISTRATION_BUTTON);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", regButton);
@@ -33,12 +35,14 @@ public class AuthorizationPage {
         return this;
     }
 
+    @Step("Дожидаемся видимости поля email")
     public AuthorizationPage fieldEmailAvailable() {
         new WebDriverWait(webDriver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(EMAIL));
         return this;
     }
 
+    @Step("Заполнение полей для авторизации и клик по кнопке Войти")
     public AuthorizationPage logIn(String email, String password) {
         new WebDriverWait(webDriver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(EMAIL)).sendKeys(email);
@@ -47,6 +51,7 @@ public class AuthorizationPage {
         return this;
     }
 
+    @Step("Клик по кнопке Восстановить пароль")
     public AuthorizationPage passwordRecoveryButtonClick() {
         WebElement passRecButton = webDriver.findElement(PASSWORD_RECOVERY_BUTTON);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", passRecButton);

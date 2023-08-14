@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class PasswordRecoveryPage {
         this.webDriver = webDriver;
     }
 
+    @Step("Клик по кнопке Войти")
     public PasswordRecoveryPage enterButtonClick() {
         WebElement enterButton = webDriver.findElement(ENTER_BUTTON);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", enterButton);

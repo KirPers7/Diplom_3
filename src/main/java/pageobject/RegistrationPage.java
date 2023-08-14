@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage {
 
-    WebDriver webDriver;
+    private final WebDriver webDriver;
 
     //Поле для ввода "Имя"
     private static final By NAME = By.xpath(".//label[text()='Имя']/parent::div/input");
@@ -29,6 +30,7 @@ public class RegistrationPage {
         this.webDriver = webDriver;
     }
 
+    @Step("Заполнение полей для регистрации и клик по кнопке Зарегистрироваться")
     public void fillRegistrationFields(String name, String email, String password) {
         new WebDriverWait(webDriver, 5)
                 .until(ExpectedConditions.visibilityOfElementLocated(NAME)).sendKeys(name);
@@ -37,6 +39,7 @@ public class RegistrationPage {
         webDriver.findElement(REGISTRATION_ACCEPT_BUTTON).click();
     }
 
+    @Step("Заполнение полей с некорректным паролем для регистрации и клик по кнопке Зарегистрироваться")
     public void fillRegistrationFieldsWithIncorrectPassword(String name, String email, String incorrectPassword) {
         new WebDriverWait(webDriver, 5)
                 .until(ExpectedConditions.visibilityOfElementLocated(NAME)).sendKeys(name);
@@ -47,14 +50,11 @@ public class RegistrationPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(ERROR_MESSAGE_INCORRECT_PASSWORD));
     }
 
+    @Step("Клик по кнопке Войти")
     public RegistrationPage enterButtonClick() {
         WebElement enterButton = webDriver.findElement(ENTER_BUTTON);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", enterButton);
         enterButton.click();
         return this;
-    }
-
-    public void getErrorPasswordText() {
-        webDriver.findElement(ERROR_MESSAGE_INCORRECT_PASSWORD).getText();
     }
 }
